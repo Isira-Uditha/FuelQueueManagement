@@ -4,43 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_color2"
+    android:background="@drawable/welcome"
     tools:context=".MainActivity">
 
 
     <Button
-        android:id="@+id/btn_shed_owner"
-        android:layout_width="152dp"
-        android:layout_height="99dp"
-        android:text="Shed Owner"
+        android:id="@+id/btn_started"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_started"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.291" />
-
-    <Button
-        android:id="@+id/btn_vehicle_owner"
-        android:layout_width="152dp"
-        android:layout_height="99dp"
-        android:text="Vehicle Owner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_shed_owner"
-        app:layout_constraintVertical_bias="0.191" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="152dp"
-        android:layout_height="99dp"
-        android:text="Log In"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_shed_owner"
-        app:layout_constraintVertical_bias="0.736" />
+        app:layout_constraintVertical_bias="0.765" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,8 @@
 package com.example.fuelquemanagement_client.constants;
 
-
+/**
+ * The Constants class keeps all the constants in the application
+ */
 public class Constants {
 
     public static final String ROLE = "Role";
@@ -28,6 +30,6 @@ public class Constants {
     public static final String THREE_WHEEL = "Three Wheel";
 
     //Base URL for API Calls
-    public static final String BASE_URL = "http://192.168.241.230:5000";
+    public static final String BASE_URL = "https://flex-fuel-live.herokuapp.com";
 
 }

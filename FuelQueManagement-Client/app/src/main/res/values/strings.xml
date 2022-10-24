@@ -57,6 +57,7 @@
     <string name="current_status">Current Fuel Status</string>
     <string name="sign_up">Sign Up</string>
     <string name="queue_enter">Entrance Form</string>
+    <string name="get_started">Get Started</string>
     <string-array name="fuel_types">
         <item>Petrol</item>
         <item>Diesel</item>

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The vehicleDashboardController class facilitates the control some functionalities that are executed in VehicleOwnerDashboard class
+ */
 public class vehicleDashboardController {
 
     //According to the selected station's queue details, this counts the number of vehicles in each queue according to the vehicle type and fuel type and return the counts
@@ -90,22 +93,6 @@ public class vehicleDashboardController {
         vehicleCounts.put(Constants.TOTAL_DIESEL_COUNT, totalDieselCount);
 
         return vehicleCounts;
-
-
-//        setQueueCountsInTexts(
-//                motorBikeDieselCount,
-//                motorBikePetrolCount,
-//                vanDieselCount,
-//                vanPetrolCount,
-//                wheelDieselCount,
-//                wheelPetrolCount,
-//                carDieselCount,
-//                carPetrolCount,
-//                busDieselCount,
-//                busPetrolCount
-//        );
-
     }
-
 
 }

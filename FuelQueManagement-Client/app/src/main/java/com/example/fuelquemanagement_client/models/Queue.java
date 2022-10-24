@@ -2,6 +2,9 @@ package com.example.fuelquemanagement_client.models;
 
 import java.io.Serializable;
 
+/**
+ * The Queue class is for the model for Queue Object
+ */
 public class Queue implements Serializable {
 
     public String id, vehicleType, vehicleOwner, fuelType, stationsId, arrivalTime, departTime;

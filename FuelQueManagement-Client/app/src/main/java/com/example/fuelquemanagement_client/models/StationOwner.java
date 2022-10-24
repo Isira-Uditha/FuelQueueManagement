@@ -1,5 +1,8 @@
 package com.example.fuelquemanagement_client.models;
 
+/**
+ * The StationOwner class is for the model for StationOwner Object
+ */
 public class StationOwner {
 
     private int id;

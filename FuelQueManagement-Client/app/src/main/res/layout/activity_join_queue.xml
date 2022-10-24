@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="350dp"
         android:orientation="vertical">
 
         <TextView
@@ -30,38 +30,20 @@
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_margin="10dp">
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txt_vehicleType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/VehicleType"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.097"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.143" />
-
-                <Spinner
-                    android:id="@+id/drpdwn_fuelType"
-                    android:layout_width="325dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/input_field"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:spinnerMode="dropdown"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.543"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/drpdwn_vehicleType"
-                    app:layout_constraintVertical_bias="0.607" />
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20sp" />
 
                 <Spinner
                     android:id="@+id/drpdwn_vehicleType"
@@ -70,26 +52,30 @@
                     android:background="@drawable/input_field"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:spinnerMode="dropdown"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.339" />
+                    android:layout_gravity="center"
+                    android:spinnerMode="dropdown" />
 
                 <TextView
                     android:id="@+id/txt_vehicleType2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/FuelType"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.087"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_vehicleType"
-                    app:layout_constraintVertical_bias="0.451" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/drpdwn_fuelType"
+                    android:layout_width="325dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/input_field"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center"
+                    android:spinnerMode="dropdown" />
+
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
@@ -103,18 +89,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.187" />
+        app:layout_constraintVertical_bias="0.267" />
 
     <TextView
         android:id="@+id/txt_timeDurationJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.394"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.056" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

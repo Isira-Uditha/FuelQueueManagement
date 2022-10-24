@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
@@ -29,15 +29,48 @@
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="420dp"
-                android:layout_margin="10dp">
+                android:layout_height="400dp"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:padding="2dp">
+
+                <TextView
+                    android:id="@+id/txt_label_fuel_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/fuel_amount_field"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/editTextFuelAmount"
+                    android:layout_width="310dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/input_field"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/text_label_arrival_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/arrival_time_field"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_ArrivalTime"
-                    android:layout_width="325dp"
+                    android:layout_width="310dp"
                     android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/input_field"
                     android:drawableLeft="@drawable/ic_baseline_access_time_24"
                     android:drawablePadding="15dp"
@@ -47,41 +80,22 @@
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.384" />
-
-                <Spinner
-                    android:id="@+id/sp_fuel_type"
-                    android:layout_width="325dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/input_field"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.924" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/text_label_fuel_category"
+                    android:id="@+id/text_label_arrival_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/fuel_type"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.08"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.814" />
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/arrival_date_field"
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/tv_ArrivalDate"
-                    android:layout_width="325dp"
+                    android:layout_width="310dp"
                     android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/input_field"
                     android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
                     android:drawablePadding="15dp"
@@ -91,101 +105,54 @@
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.651" />
+                    android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/text_label_arrival_date"
+                    android:id="@+id/text_label_fuel_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="76dp"
-                    android:text="@string/arrival_date_field"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/text_label_fuel_category"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.086"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/fuel_type"
+                    android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/text_label_arrival_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/arrival_time_field"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toTopOf="@+id/text_label_arrival_date"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.087"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt_label_fuel_amount"
-                    app:layout_constraintVertical_bias="0.489" />
-
-                <EditText
-                    android:id="@+id/editTextFuelAmount"
-                    android:layout_width="325dp"
+                <Spinner
+                    android:id="@+id/sp_fuel_type"
+                    android:layout_width="310dp"
                     android:layout_height="35dp"
-                    android:background="@drawable/input_field"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.129" />
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/input_field" />
 
-                <TextView
-                    android:id="@+id/txt_label_fuel_amount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/fuel_amount_field"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.127"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.04" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/cancel_button"
+                android:text="@string/cancel_text"
+                android:textSize="16sp"
+                app:cornerRadius="5dp" />
+
+            <Button
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/submit_button"
+                android:text="@string/update_btn"
+                android:textSize="16sp"
+                app:cornerRadius="5dp" />
+
+        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_update"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="68dp"
-        android:backgroundTint="@color/submit_button"
-        android:text="@string/update_btn"
-        android:textSize="16sp"
-        app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.069" />
-
-    <Button
-        android:id="@+id/btn_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginEnd="15dp"
-        android:backgroundTint="@color/cancel_button"
-        android:text="@string/cancel_text"
-        android:textSize="16sp"
-        app:cornerRadius="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_update"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        app:layout_constraintVertical_bias="0.047" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

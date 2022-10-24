@@ -54,9 +54,10 @@
             app:cardBackgroundColor="@color/card_background"
             app:cardCornerRadius="10dp">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="140dp"
+                android:padding="10dp"
                 android:orientation="vertical">
 
                 <EditText
@@ -67,14 +68,11 @@
                     android:ems="10"
                     android:hint="@string/Username"
                     android:inputType="textPersonName"
+                    android:layout_gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.26" />
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp" />
 
                 <EditText
                     android:id="@+id/edtTxt_password"
@@ -84,16 +82,13 @@
                     android:ems="10"
                     android:hint="@string/Password"
                     android:inputType="textPassword"
+                    android:layout_gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textSize="20sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.695" />
+                    android:layout_marginTop="30dp"
+                    android:textSize="20sp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 

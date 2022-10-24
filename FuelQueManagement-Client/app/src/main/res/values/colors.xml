@@ -20,4 +20,5 @@
     <color name="cancel_button">#E7CC96</color>
     <color name="card_background">#B8B8BB</color>
     <color name="background_color">#EBE7E7</color>
+    <color name="green">#97C40D</color>
 </resources>

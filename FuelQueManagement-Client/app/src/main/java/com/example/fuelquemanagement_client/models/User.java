@@ -2,6 +2,9 @@ package com.example.fuelquemanagement_client.models;
 
 import java.io.Serializable;
 
+/**
+ * The User class is for the model for User Object
+ */
 public class User implements Serializable {
     private int id;
     private String fName, username,location, stationName, password, stationId, role;

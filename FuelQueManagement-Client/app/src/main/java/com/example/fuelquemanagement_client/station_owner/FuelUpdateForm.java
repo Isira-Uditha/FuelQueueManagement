@@ -33,6 +33,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.fuelquemanagement_client.R;
 import com.example.fuelquemanagement_client.constants.Constants;
+import com.example.fuelquemanagement_client.database.InputValidatorHelper;
 import com.example.fuelquemanagement_client.models.FuelStation;
 
 import org.json.JSONException;
@@ -41,6 +42,9 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.util.Calendar;
 
+/**
+ * The FuelUpdateForm class facilitates Station Owner to enter the details fuel arrivals of the fuel station
+ */
 public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView tv_arrival_date, tv_arrival_time;
     private int hour, min;
@@ -48,7 +52,7 @@ public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnI
     private Spinner sp_fuel_type;
     private Button btn_update, btn_cancel;
     private String selectedType, stationID;
-    private FuelStation fuelStation;
+    private FuelStation fuelStation, updatedFuelStation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +86,18 @@ public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnI
         btn_update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                postFuelUpdate();
+                // Checks for validations
+                boolean checks = checkValidations();
+                if(checks){
+                    postFuelUpdate();
+                    try {
+                        findFuelStationById(stationID);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(FuelUpdateForm.this, Constants.ERROR, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -171,15 +186,11 @@ public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnI
                     Log.i("LOG_VOLLEY", response.getClass().getName());
 
                     // Checking the response to show the toast messages
-                    if(response.equals("200")) {
+                    if (response.equals("200")) {
                         Toast.makeText(FuelUpdateForm.this, Constants.UPDATE_SUCCESS, Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(FuelUpdateForm.this, Constants.ERROR, Toast.LENGTH_SHORT).show();
                     }
-                    // Navigation after database operation
-                    Intent intent = new Intent(FuelUpdateForm.this, StationOwnerDashboard.class);
-                    intent.putExtra(Constants.STATION, fuelStation);
-                    startActivity(intent);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -215,6 +226,7 @@ public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnI
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override
@@ -222,10 +234,86 @@ public class FuelUpdateForm extends AppCompatActivity implements AdapterView.OnI
         int id = item.getItemId();
 
         // Back button navigation
-        if(id == android.R.id.home){
+        if (id == android.R.id.home) {
             Intent intent = new Intent(FuelUpdateForm.this, StationOwnerDashboard.class);
+            intent.putExtra(Constants.STATION, fuelStation);
             startActivity(intent);
         }
         return true;
+    }
+
+    // find and retrieve the object of the fuel station which is owned by the logged station owner
+    public void findFuelStationById(String stationId) throws InterruptedException {
+        Thread.sleep(2500);
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = Constants.BASE_URL + "/FuelStation/";
+        String get_url = url.concat(stationId);
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, get_url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject singleObject = new JSONObject(response);
+                            System.out.println("HERE THE RESPONSE OBJECT" + singleObject);
+                            Log.e("api", "onResponse: " + singleObject.getString("id"));
+                            FuelStation fuelStationUp = new FuelStation(
+                                    singleObject.getString("id"),
+                                    singleObject.getString("name"),
+                                    singleObject.getString("location"),
+                                    singleObject.getString("stationOwner"),
+                                    singleObject.getString("lastModified"),
+                                    singleObject.getBoolean("dieselStatus"),
+                                    singleObject.getBoolean("petrolStatus"),
+                                    singleObject.getInt("totalDiesel"),
+                                    singleObject.getInt("totalPetrol")
+                            );
+                            Log.e("api", "onResponse: " + fuelStationUp.getStationName() + " has loaded!");
+                            System.out.println("TOTAL" + fuelStationUp.getTotalPetrol());
+                            updatedFuelStation = fuelStationUp;
+
+                            // Navigation after database operation
+                            Intent intent = new Intent(FuelUpdateForm.this, StationOwnerDashboard.class);
+                            intent.putExtra(Constants.STATION, updatedFuelStation);
+                            startActivity(intent);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("That didn't work! +" + error.getLocalizedMessage());
+                    }
+                });
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);
+    }
+
+    // Function to check input field validations
+    public boolean checkValidations() {
+        InputValidatorHelper inputValidatorHelper = new InputValidatorHelper();
+
+        boolean save = true;
+
+        if(inputValidatorHelper.isNullOrEmpty(et_fuel_amount.getText().toString())) {
+            Toast.makeText(this, "Fuel Amount should not be empty!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(inputValidatorHelper.isNullOrEmpty(tv_arrival_date.getText().toString())) {
+            Toast.makeText(this, "Arrival Date should not be empty!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(inputValidatorHelper.isNullOrEmpty(tv_arrival_time.getText().toString())) {
+            Toast.makeText(this, "Arrival Time should not be empty!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return save;
     }
 }

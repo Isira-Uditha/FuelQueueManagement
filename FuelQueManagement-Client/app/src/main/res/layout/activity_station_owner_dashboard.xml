@@ -16,12 +16,10 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
             android:layout_width="wrap_content"
-            android:layout_height="196dp"
+            android:layout_height="184dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
             android:layout_marginBottom="4dp"
             android:background="@drawable/fuel_station"
-            app:cardCornerRadius="10dp"
             app:cardElevation="8dp">
 
             <ImageView
@@ -35,10 +33,13 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="4dp"
             android:elevation="8dp"
-            app:cardBackgroundColor="@color/btn_color1">
+            app:cardBackgroundColor="@color/cancel_button"
+            app:cardCornerRadius="10dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -63,6 +64,24 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/txt_current_diesel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_dot"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/txt_current_petrol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_dot2"
+            android:layout_margin="10dp"
+            android:textSize="18sp"
+            android:text="TextView" />
+
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="140dp"
@@ -71,6 +90,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="4dp"
             app:cardBackgroundColor="@color/card_background"
+            app:cardCornerRadius="10dp"
             app:cardElevation="10dp">
 
             <RelativeLayout
@@ -215,6 +235,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.059" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

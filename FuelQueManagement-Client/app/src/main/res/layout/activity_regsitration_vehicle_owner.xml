@@ -89,10 +89,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintHorizontal_bias="0.491"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtTxt_username"
-                    app:layout_constraintVertical_bias="0.217" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.604" />
 
                 <EditText
                     android:id="@+id/edtTxt_confirmPassword"
@@ -106,10 +106,10 @@
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.493"
+                    app:layout_constraintHorizontal_bias="0.491"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtTxt_password"
-                    app:layout_constraintVertical_bias="0.431" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.851" />
 
                 <EditText
                     android:id="@+id/edtTxt_username"
@@ -130,13 +130,13 @@
 
                 <EditText
                     android:id="@+id/edtTxt_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
                     android:layout_marginTop="8dp"
                     android:ems="10"
                     android:hint="@string/Location"
                     android:inputType="textPersonName"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.422"

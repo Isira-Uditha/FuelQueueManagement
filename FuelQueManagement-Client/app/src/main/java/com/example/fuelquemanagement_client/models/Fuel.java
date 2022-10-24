@@ -1,5 +1,8 @@
 package com.example.fuelquemanagement_client.models;
 
+/**
+ * The Fuel class is for the model for Fuel Object
+ */
 public class Fuel {
 
     public String id, type, date, time, stationsId, lastModified;

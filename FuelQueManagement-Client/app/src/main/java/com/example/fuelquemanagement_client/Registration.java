@@ -22,6 +22,9 @@ import com.example.fuelquemanagement_client.database.DatabaseHelper;
 import com.example.fuelquemanagement_client.database.InputValidatorHelper;
 import com.example.fuelquemanagement_client.models.User;
 
+/**
+ * The Registration class facilitates the application user to register to the system as Vehicle Owner or a Station Owner
+ */
 public class Registration extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edFullName, edUserName, edPassword, edConfirmPassword, edLocation, edStationName;

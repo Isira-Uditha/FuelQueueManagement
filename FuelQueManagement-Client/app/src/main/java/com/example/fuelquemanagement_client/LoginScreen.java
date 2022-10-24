@@ -29,6 +29,9 @@ import com.example.fuelquemanagement_client.models.User;
 import com.example.fuelquemanagement_client.station_owner.StationOwnerDashboard;
 import com.example.fuelquemanagement_client.vehicle_owner.SelectionStation;
 
+/**
+ * The LoginScreen class facilitates the application user to login to the application
+ */
 public class LoginScreen extends AppCompatActivity implements View.OnClickListener {
 
     final FuelStation[] registeredFuelStation = {new FuelStation()};
@@ -151,7 +154,6 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                             JSONArray array = new JSONArray(response);
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject singleObject = array.getJSONObject(i);
-                                Log.e("api", "onResponse: " + singleObject.getString("id"));
                                 FuelStation fuelStation = new FuelStation(
                                         singleObject.getString("id"),
                                         singleObject.getString("name"),
@@ -159,10 +161,11 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                                         singleObject.getString("stationOwner"),
                                         singleObject.getString("lastModified"),
                                         singleObject.getBoolean("dieselStatus"),
-                                        singleObject.getBoolean("petrolStatus")
+                                        singleObject.getBoolean("petrolStatus"),
+                                        singleObject.getInt("totalDiesel"),
+                                        singleObject.getInt("totalPetrol")
                                 );
                                 stations.add(fuelStation);
-                                Log.e("api", "onResponse: " + stations.size());
                                 for (FuelStation station : stations) {
                                     if (station.getId().equals(stationId)) {
                                         registeredFuelStation[0] = station;

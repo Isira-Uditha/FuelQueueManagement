@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The FuelStation class is for the model for Fuel Station Object
+ */
 public class FuelStation implements Serializable {
 
     private String id;

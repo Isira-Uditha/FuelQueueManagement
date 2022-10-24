@@ -5,6 +5,9 @@ import android.text.TextUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The InputValidatorHelper class facilitates validations of input fields
+ */
 public class InputValidatorHelper {
 
     //Validates a email

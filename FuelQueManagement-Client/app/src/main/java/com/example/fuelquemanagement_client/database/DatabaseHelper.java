@@ -13,6 +13,9 @@ import com.example.fuelquemanagement_client.models.StationOwner;
 import com.example.fuelquemanagement_client.models.User;
 import com.example.fuelquemanagement_client.models.VehicleOwner;
 
+/**
+ * The DatabaseHelper class facilitates and manage credentials of using SQLite DB by making the connection with SQLite DB
+ */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String USER_TABLE = "USER_TABLE";
@@ -25,10 +28,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String STATION_NAME = "STATION_NAME";
     public static final String STATION_ID = "STATION_ID";
 
-//    public static final String VEHICLE_OWNER_TABLE = "VEHCILE_OWNER_TABLE";
-//    public static final String STATION_OWNER_TABLE = "STATION_OWNER_TABLE";
-
-
     public DatabaseHelper(@Nullable Context context) {
         //name --> Database Name
         super(context, "fuel_queue", null, 1);
@@ -36,11 +35,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-//        String createTableStmntVehicle = "CREATE TABLE " + VEHICLE_OWNER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + FULL_NAME + ", " + USERNAME + ", " + PASSWORD + ")";
-//        sqLiteDatabase.execSQL(createTableStmntVehicle);
-//
-//        String createTableStmntStation = "CREATE TABLE " + STATION_OWNER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + FULL_NAME + ", " + USERNAME + ", " + PASSWORD + ", " + LOCATION + ", " + STATION_NAME + ")";
-//        sqLiteDatabase.execSQL(createTableStmntStation);
 
         String createTableStmntUser = "CREATE TABLE " + USER_TABLE + " (" + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + FULL_NAME + ", " + USERNAME + ", " + PASSWORD + ", " + LOCATION + ", " + STATION_NAME + ", " + STATION_ID + ", " + ROLE + ")";
         sqLiteDatabase.execSQL(createTableStmntUser);
@@ -49,38 +43,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
     }
-
-//    public boolean addVehicleOwnerRecord(VehicleOwner vehicleOwner) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//
-//        cv.put(FULL_NAME, vehicleOwner.getfName());
-//        cv.put(USERNAME, vehicleOwner.getUsername());
-//        cv.put(PASSWORD, vehicleOwner.getPassword());
-//
-//        long insertSuccess = db.insert(VEHICLE_OWNER_TABLE, null, cv);
-//        if(insertSuccess == -1) {
-//            return false;
-//        }
-//        return true;
-//    }
-
-//    public boolean addStationOwnerRecord(StationOwner stationOwner) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues cv = new ContentValues();
-//
-//        cv.put(FULL_NAME, stationOwner.getfName());
-//        cv.put(USERNAME, stationOwner.getUsername());
-//        cv.put(PASSWORD, stationOwner.getPassword());
-//        cv.put(LOCATION, stationOwner.getLocation());
-//        cv.put(STATION_NAME, stationOwner.getStationName());
-//
-//        long insertSuccess = db.insert(STATION_OWNER_TABLE, null, cv);
-//        if(insertSuccess == -1) {
-//            return false;
-//        }
-//        return true;
-//    }
 
     // Add User Record to the database
     public boolean addUserRecord(User user) {
@@ -144,7 +106,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int id = cursor.getInt(0);
 
         return String.valueOf(id);
-
     }
 
 }
