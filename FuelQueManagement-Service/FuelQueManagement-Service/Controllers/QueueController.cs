@@ -47,7 +47,14 @@ namespace FuelQueManagement_Service.Controllers
                 {
                     QueueModel queue = new QueueModel();
                     var station = await _fuelStationService.GetStationByQueueId(queueId);
-                    _queueService.UpdateQueueHistory(stationId, station.Queue[0]);
+                    foreach (QueueModel que in station.Queue)
+                    {
+                        if (que.Id == queueId)
+                        {
+                            queue = que;
+                        }
+                    }
+                    _queueService.UpdateQueueHistory(stationId, queue);
                     var currentAmount = await _fuelStationService.getCurrentFuelAmount(stationId, fuelType);
                     int letersPerVehicle = _Configuration.GetValue<int>("LetersPerVehicle");
                     _fuelStationService.ReduceFromTotalFuelAmount(stationId, letersPerVehicle, fuelType, currentAmount);
